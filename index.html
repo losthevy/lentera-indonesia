@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LENTERA · Server Pembelajaran Luring Sekolah 3T</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#15305C;--red:#A31621;--blue:#2F6DB5;--green:#385723;--maroon:#7A1520;--grey:#F1F2F4;--line:#DADDE3;--ink:#1F2329;--muted:#5F6672;--cream:#FBFAF7}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Poppins,system-ui,sans-serif;color:var(--ink);background:var(--cream);font-size:14px}
+header.top{background:var(--navy);color:#fff;display:flex;align-items:center;gap:12px;padding:10px 22px;position:sticky;top:0;z-index:5}
+.dot{width:26px;height:26px;border-radius:50%;background:#fff;display:grid;place-items:center}
+.dot i{width:12px;height:12px;border-radius:50%;background:var(--red);display:block}
+header.top b{font-size:15px;letter-spacing:.5px}
+header.top .sub{font-size:11px;color:#9DB9E8}
+.net{margin-left:auto;display:flex;align-items:center;gap:10px;font-size:12px}
+.pill{padding:4px 10px;border-radius:999px;font-weight:600;font-size:11px}
+.off{background:var(--red)}.on{background:var(--green)}
+.switch{background:#fff;color:var(--navy);border:0;border-radius:8px;padding:6px 12px;font:600 12px Poppins;cursor:pointer}
+.redline{height:4px;background:var(--red)}
+.wrap{max-width:1180px;margin:0 auto;padding:20px}
+nav.tabs{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+nav.tabs button{flex:1;min-width:150px;border:0;padding:11px;font:600 13px Poppins;color:#fff;border-radius:8px;cursor:pointer;opacity:.55}
+nav.tabs button.act{opacity:1;transform:translateY(-2px);box-shadow:0 4px 10px rgba(21,48,92,.2)}
+.t1{background:#111}.t2{background:var(--navy)}.t3{background:var(--blue)}.t4{background:var(--maroon)}
+h2{font-size:22px;color:var(--navy);margin-bottom:4px}h2 em{color:var(--red);font-style:normal}
+.lead{color:var(--muted);margin-bottom:16px;font-size:13px}
+.grid{display:grid;gap:14px}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g2{grid-template-columns:1.2fr 1fr}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.card .hd{color:#fff;font-weight:600;padding:9px 14px;font-size:13px}
+.card .bd{padding:14px}
+.kpi{border-left:6px solid var(--navy);padding:14px 16px}
+.kpi .n{font-size:28px;font-weight:700;color:var(--navy)}.kpi .l{font-size:12px;color:var(--muted)}
+.item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px dashed var(--line)}
+.item:last-child{border:0}
+.tag{font-size:10px;font-weight:600;padding:3px 8px;border-radius:6px;background:var(--grey);color:var(--navy)}
+.btn{border:0;border-radius:8px;padding:8px 14px;font:600 12px Poppins;cursor:pointer;color:#fff;background:var(--navy)}
+.btn.r{background:var(--red)}.btn.b{background:var(--blue)}.btn.g{background:var(--green)}.btn.ghost{background:var(--grey);color:var(--navy)}
+.q{font-size:17px;font-weight:600;color:var(--navy);margin:8px 0 14px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opts button{border:1.5px solid var(--line);background:#fff;border-radius:10px;padding:12px;font:500 14px Poppins;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--blue)}
+.lvl{display:flex;gap:6px;margin:6px 0}.lvl span{flex:1;height:8px;border-radius:4px;background:var(--grey)}.lvl span.f{background:var(--blue)}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{background:var(--grey);color:var(--navy);text-align:left;padding:8px;font-weight:600}
+td{padding:8px;border-bottom:1px solid var(--line)}
+.st{font-size:10.5px;font-weight:700;padding:3px 8px;border-radius:6px;color:#fff}
+.hijau{background:var(--green)}.kuning{background:#C98A00}.merah{background:var(--red)}
+.bar{height:8px;background:var(--grey);border-radius:4px;overflow:hidden}.bar i{display:block;height:100%;background:var(--blue)}
+.queue div{font-size:12px;padding:7px 10px;border:1px solid var(--line);border-radius:8px;margin-bottom:6px;display:flex;justify-content:space-between}
+.log{font-family:ui-monospace,monospace;font-size:11.5px;background:#0f1d38;color:#cfe0ff;border-radius:10px;padding:12px;height:170px;overflow:auto}
+.flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:10px}
+.flow b{border:1.5px solid var(--navy);color:var(--navy);border-radius:8px;padding:7px 10px;font-size:11.5px;background:#fff}
+.flow b.r{border-color:var(--red);color:var(--red)}
+.note{font-size:11px;color:var(--muted);background:var(--grey);border-radius:8px;padding:8px 12px;margin-top:14px;font-style:italic}
+.hidden{display:none}
+footer{display:flex;gap:6px;padding:0 20px 20px;max-width:1180px;margin:0 auto}footer span{flex:1;height:6px;border-radius:3px}
+.toast{position:fixed;bottom:20px;right:20px;background:var(--navy);color:#fff;padding:10px 16px;border-radius:10px;font-size:13px;opacity:0;transition:.3s}
+.toast.s{opacity:1}
+@media(max-width:820px){.g3,.g4,.g2{grid-template-columns:1fr}.opts{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="dot"><i></i></div>
+  <div><b>LENTERA</b><div class="sub">Server pembelajaran luring · SD Rintisan 01 (simulasi)</div></div>
+  <div class="net"><span id="netPill" class="pill off">LURING · tanpa sinyal</span>
+    <button class="switch" id="netBtn">Buka jendela sinyal</button></div>
+</header>
+<div class="redline"></div>
+<div class="wrap">
+  <nav class="tabs">
+    <button class="t1 act" data-v="murid">Ruang Murid</button>
+    <button class="t2" data-v="guru">Dasbor Guru</button>
+    <button class="t3" data-v="kepsek">Kepala Sekolah</button>
+    <button class="t4" data-v="sinkron">Sinkron &amp; Catatan Nyala</button>
+  </nav>
+
+  <!-- MURID -->
+  <section id="murid">
+    <h2>Belajar <em>tanpa internet</em></h2>
+    <p class="lead">Terhubung ke Wi-Fi lokal LENTERA. Materi tersimpan di cakram keras sekolah.</p>
+    <div class="grid g2">
+      <div class="card"><div class="hd" style="background:var(--red)">Modul Kelas · Latihan bertingkat</div>
+        <div class="bd">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <span class="tag" id="lvlTag">Tingkat 1</span><span style="font-size:12px;color:var(--muted)">Benar <b id="ok">0</b> · Salah <b id="no">0</b></span></div>
+          <div class="lvl" id="lvlBar"><span></span><span></span><span></span><span></span><span></span></div>
+          <div class="q" id="qText">…</div>
+          <div class="opts" id="qOpts"></div>
+          <p class="note">Soal naik tingkat setelah dua jawaban benar berturut-turut dan turun setelah satu jawaban salah. Hasil tersimpan lokal dan menunggu sinkronisasi.</p>
+        </div></div>
+      <div class="card"><div class="hd" style="background:var(--navy)">Modul Pustaka</div>
+        <div class="bd" id="pustaka"></div></div>
+    </div>
+  </section>
+
+  <!-- GURU -->
+  <section id="guru" class="hidden">
+    <h2>Dasbor <em>Guru</em></h2>
+    <p class="lead">Capaian per murid dari latihan hari ini. Tanda merah berarti murid perlu pendampingan.</p>
+    <div class="grid g4" id="guruKpi"></div>
+    <div class="card" style="margin-top:14px"><div class="hd" style="background:var(--blue)">Modul Rapor · Kelas 5</div>
+      <div class="bd"><table><thead><tr><th>Murid</th><th>Tingkat</th><th>Ketepatan</th><th>Menit belajar</th><th>Status</th></tr></thead><tbody id="guruTbl"></tbody></table></div></div>
+  </section>
+
+  <!-- KEPSEK -->
+  <section id="kepsek" class="hidden">
+    <h2>Perencanaan <em>berbasis data</em></h2>
+    <p class="lead">Ringkasan untuk kepala sekolah sebagai bahan Rapor Pendidikan dan rencana anggaran sekolah.</p>
+    <div class="grid g3">
+      <div class="card kpi"><div class="n" id="kGuru">0%</div><div class="l">guru memakai LENTERA pekan ini (target ≥80%)</div></div>
+      <div class="card kpi" style="border-color:var(--red)"><div class="n" style="color:var(--red)" id="kJam">0</div><div class="l">rata-rata menit belajar digital per murid per pekan (target ≥120)</div></div>
+      <div class="card kpi" style="border-color:var(--blue)"><div class="n" style="color:var(--blue)" id="kNyala">0</div><div class="l">jam perangkat menyala pekan ini</div></div>
+    </div>
+    <div class="grid g2" style="margin-top:14px">
+      <div class="card"><div class="hd" style="background:var(--navy)">Capaian per rombel</div><div class="bd" id="rombel"></div></div>
+      <div class="card"><div class="hd" style="background:var(--maroon)">Rekomendasi tindak lanjut</div><div class="bd" id="reko"></div></div>
+    </div>
+  </section>
+
+  <!-- SINKRON -->
+  <section id="sinkron" class="hidden">
+    <h2>Simpan, lalu <em>teruskan</em></h2>
+    <p class="lead">Data menunggu di sekolah dan terkirim saat jendela sinyal terbuka atau lewat kurir data KKG.</p>
+    <div class="grid g2">
+      <div class="card"><div class="hd" style="background:var(--maroon)">Antrean kirim</div>
+        <div class="bd"><div class="queue" id="queue"></div>
+          <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
+            <button class="btn r" id="kurirBtn">Ekspor ke diska lepas (kurir KKG)</button>
+            <button class="btn ghost" id="addNyala">Catat nyala 1 jam</button></div>
+          <div class="flow"><b>Sekolah luring</b>→<b class="r">Jendela sinyal / kurir KKG</b>→<b>Rumah Pendidikan + Dapodik</b>→<b>Pembaruan materi</b></div>
+        </div></div>
+      <div class="card"><div class="hd" style="background:var(--navy)">Catatan nyala (untuk Dapodik)</div>
+        <div class="bd"><table><tbody id="nyala"></tbody></table><div class="log" id="log" style="margin-top:12px"></div></div></div>
+    </div>
+    <p class="note">Catatan nyala mencatat jam perangkat menyala, sumber daya listrik, dan jumlah layar terhubung. Hanya indikator agregat yang dikirim ke pusat. Seluruh data di halaman ini simulasi.</p>
+  </section>
+</div>
+<footer><span style="background:#111"></span><span style="background:var(--navy)"></span><span style="background:var(--blue)"></span><span style="background:var(--maroon)"></span><span style="background:var(--red)"></span></footer>
+<div class="toast" id="toast"></div>
+<script>
+const $=s=>document.querySelector(s);
+let online=false;
+const state={lvl:1,streak:0,ok:0,no:0,queue:[],nyala:{jam:26,sumber:"PLTS + baterai",layar:7}};
+const log=m=>{const l=$("#log");const t=new Date().toLocaleTimeString("id-ID");l.innerHTML+=`[${t}] ${m}<br>`;l.scrollTop=1e6};
+const toast=m=>{const t=$("#toast");t.textContent=m;t.classList.add("s");setTimeout(()=>t.classList.remove("s"),2200)};
+// tabs
+document.querySelectorAll("nav.tabs button").forEach(b=>b.onclick=()=>{
+  document.querySelectorAll("nav.tabs button").forEach(x=>x.classList.remove("act"));b.classList.add("act");
+  ["murid","guru","kepsek","sinkron"].forEach(v=>$("#"+v).classList.toggle("hidden",v!==b.dataset.v));render();});
+// pustaka
+const pustaka=[["Pecahan senilai","Video · Matematika",'red'],["Cerita rakyat Manggarai","Buku digital · Muatan lokal",'navy'],["Siklus air","Animasi · IPAS",'blue'],["Membaca pemahaman","Latihan · Bahasa Indonesia",'green'],["Mengenal algoritma","Koding tanpa komputer · Pilihan",'maroon']];
+$("#pustaka").innerHTML=pustaka.map(p=>`<div class="item"><div style="width:6px;height:34px;border-radius:3px;background:var(--${p[2]})"></div><div style="flex:1"><b style="font-size:13px">${p[0]}</b><div style="font-size:11.5px;color:var(--muted)">${p[1]}</div></div><span class="tag">luring</span></div>`).join("");
+// adaptive quiz
+function gen(l){const a=Math.floor(Math.random()*(4*l))+l+1,b=Math.floor(Math.random()*(3*l))+1;
+  const ops=l<3?["+","−"]:["×","+"];const op=ops[Math.floor(Math.random()*ops.length)];
+  const ans=op==="+"?a+b:op==="−"?a-b:a*b;const set=new Set([ans]);while(set.size<4)set.add(ans+Math.floor(Math.random()*9)-4||ans+5);
+  return{q:`${a} ${op} ${b} = ?`,ans,opts:[...set].sort(()=>Math.random()-.5)}}
+let cur;
+function showQ(){cur=gen(state.lvl);$("#qText").textContent=cur.q;$("#lvlTag").textContent="Tingkat "+state.lvl;
+  $("#lvlBar").innerHTML=[1,2,3,4,5].map(i=>`<span class="${i<=state.lvl?'f':''}"></span>`).join("");
+  $("#qOpts").innerHTML=cur.opts.map(o=>`<button>${o}</button>`).join("");
+  document.querySelectorAll("#qOpts button").forEach(b=>b.onclick=()=>answer(+b.textContent));}
+function answer(v){const right=v===cur.ans;
+  if(right){state.ok++;state.streak++;if(state.streak>=2&&state.lvl<5){state.lvl++;state.streak=0;toast("Naik ke tingkat "+state.lvl)}}
+  else{state.no++;state.streak=0;if(state.lvl>1){state.lvl--;toast("Soal disesuaikan ke tingkat "+state.lvl)}}
+  $("#ok").textContent=state.ok;$("#no").textContent=state.no;
+  enqueue(`Capaian latihan · ${right?"benar":"salah"} · tingkat ${state.lvl}`);showQ();}
+// queue / sync
+function enqueue(x){state.queue.push({x,kb:(Math.random()*3+1).toFixed(1)});if(online)flush();renderQueue();}
+function renderQueue(){$("#queue").innerHTML=state.queue.length?state.queue.slice(-8).map(q=>`<div><span>${q.x}</span><span class="tag">${q.kb} KB</span></div>`).join("")+(state.queue.length>8?`<div><span>+${state.queue.length-8} entri lain</span></div>`:""):'<div><span>Antrean kosong, semua data sudah terkirim</span></div>';}
+function flush(){if(!state.queue.length)return;const n=state.queue.length,kb=state.queue.reduce((s,q)=>s+ +q.kb,0).toFixed(1);
+  state.queue=[];log(`Terkirim ${n} entri (${kb} KB) ke Rumah Pendidikan. Catatan nyala ${state.nyala.jam} jam diteruskan ke Dapodik.`);log("Paket pembaruan materi diunduh dan disimpan ke Pustaka.");renderQueue();}
+$("#netBtn").onclick=()=>{online=!online;$("#netPill").className="pill "+(online?"on":"off");$("#netPill").textContent=online?"JENDELA SINYAL · daring":"LURING · tanpa sinyal";
+  $("#netBtn").textContent=online?"Tutup jendela sinyal":"Buka jendela sinyal";log(online?"Jendela sinyal terbuka, sinkronisasi dimulai.":"Kembali luring, data disimpan lokal.");if(online)flush();toast(online?"Sinkronisasi berjalan":"Mode luring");};
+$("#kurirBtn").onclick=()=>{if(!state.queue.length){toast("Antrean kosong");return}log(`Diekspor ${state.queue.length} entri terenkripsi ke diska lepas untuk dibawa ke pertemuan KKG.`);state.queue=[];renderQueue();toast("Siap dibawa kurir KKG");};
+$("#addNyala").onclick=()=>{state.nyala.jam++;enqueue("Catatan nyala · +1 jam perangkat menyala");render();};
+// guru data
+const murid=["Ana","Beni","Citra","Dami","Elsa","Fransi","Gusti","Hana","Ivan","Juli","Kris","Lina"].map((n,i)=>({n,l:1+(i*7)%5,a:45+(i*13)%50,m:60+(i*29)%110}));
+function render(){
+  murid[0].l=state.lvl; const tot=state.ok+state.no; if(tot) murid[0].a=Math.round(100*state.ok/tot);
+  const st=a=>a>=70?['hijau','Lancar']:a>=55?['kuning','Pantau']:['merah','Dampingi'];
+  $("#guruTbl").innerHTML=murid.map(m=>{const s=st(m.a);return `<tr><td>${m.n}</td><td>${m.l}</td><td><div class="bar"><i style="width:${m.a}%"></i></div>${m.a}%</td><td>${m.m}</td><td><span class="st ${s[0]}">${s[1]}</span></td></tr>`}).join("");
+  const perlu=murid.filter(m=>m.a<55).length, avg=Math.round(murid.reduce((s,m)=>s+m.a,0)/murid.length), mnt=Math.round(murid.reduce((s,m)=>s+m.m,0)/murid.length);
+  $("#guruKpi").innerHTML=[["12","murid aktif","navy"],[avg+"%","rata-rata ketepatan","blue"],[perlu,"perlu pendampingan","red"],[state.queue.length,"entri menunggu sinkron","maroon"]].map(k=>`<div class="card kpi" style="border-color:var(--${k[2]})"><div class="n" style="color:var(--${k[2]})">${k[0]}</div><div class="l">${k[1]}</div></div>`).join("");
+  $("#kGuru").textContent="83%";$("#kJam").textContent=mnt;$("#kNyala").textContent=state.nyala.jam;
+  $("#rombel").innerHTML=[["Kelas 1",62],["Kelas 2",58],["Kelas 3",71],["Kelas 4",54],["Kelas 5",avg],["Kelas 6",69]].map(r=>`<div style="margin-bottom:10px"><div style="display:flex;justify-content:space-between;font-size:12.5px"><span>${r[0]}</span><b>${r[1]}%</b></div><div class="bar"><i style="width:${r[1]}%;background:${r[1]<55?'var(--red)':'var(--blue)'}"></i></div></div>`).join("");
+  $("#reko").innerHTML=`<div class="item"><span class="st merah">Prioritas</span><span style="font-size:12.5px">Kelas 4 di bawah 55%. Jadwalkan sesi latihan terstruktur 2 × 40 menit.</span></div>
+   <div class="item"><span class="st kuning">Anggaran</span><span style="font-size:12.5px">Perawatan titik akses dan baterai masuk komponen BOSP langganan daya dan jasa.</span></div>
+   <div class="item"><span class="st hijau">KKG</span><span style="font-size:12.5px">Bawa diska lepas berisi data terenkripsi ke pertemuan KKG berikutnya.</span></div>`;
+  $("#nyala").innerHTML=`<tr><td>Jam menyala pekan ini</td><td><b>${state.nyala.jam} jam</b></td></tr><tr><td>Sumber daya</td><td><b>${state.nyala.sumber}</b></td></tr><tr><td>Layar terhubung</td><td><b>${state.nyala.layar} perangkat</b></td></tr><tr><td>Status listrik terbaca</td><td><span class="st hijau">Terverifikasi dari pemakaian</span></td></tr>`;
+}
+log("LENTERA aktif. Wi-Fi lokal 'LENTERA-SD01' memancar. Mode luring.");
+showQ();renderQueue();render();
+</script>
+</body>
+</html>
